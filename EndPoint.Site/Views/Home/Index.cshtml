@@ -1,0 +1,76 @@
+﻿@using hooshAuto.Application.Services.Mails.Queries
+@model ReslutGetMailsDto;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Zero configuration table -->
+        <section id="configuration">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-success">
+                                <h4 class="card-title">لیست پیام ها</h4>
+                            </div>
+                        </div>
+                        <div class="card-body collapse show">
+                            <div class="card-block card-dashboard">
+
+                                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                                    <div class="col-sm-12">
+                                        <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="فرستنده: activate to sort column descending" style="width: 222px;">فرستنده</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="عنوان: activate to sort column ascending" style="width: 401px;">عنوان</th>
+                                                    @* <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="سطح دسترسی: activate to sort column ascending" style="width: 401px;">سطح کاربر</th>
+                                                    </tr>*@
+                                            </thead>
+                                            <tbody>
+
+                                                @foreach (var item in Model.Mails)
+                                                {
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1">@item.Sender</td>
+                                                        <td>@item.Title</td>
+                                                        <td>
+
+                                                            <a href="~/Home/MailContent/@item.Id" class="btn btn-info">مشاهده</a>
+
+                                                        </td>
+
+                                                    </tr>
+                                                }
+
+
+
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+@section Scripts
+    {
+
+
+    }
+
+
